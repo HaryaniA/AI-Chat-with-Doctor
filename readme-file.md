@@ -5,11 +5,11 @@
 ![Python](https://img.shields.io/badge/Python-3.8+-blue)
 ![Hugging Face](https://img.shields.io/badge/Deployment-Hugging%20Face-yellow)
 
-## 🌟 Overview
+## Overview
 
 ChatDoctor is an AI-powered medical conversation assistant built on advanced language model technology. It provides informative responses to health-related queries while maintaining appropriate medical disclaimers. This project adapts the [ChatDoctor model](https://huggingface.co/zl111/ChatDoctor) from Hugging Face into an accessible, user-friendly interface.
 
-## ✨ Features
+## Features
 
 - **Medical Question Answering**: Get informative responses about symptoms, conditions, treatments, and general health information
 - **Conversational Interface**: Natural dialogue-based interaction for a seamless experience
@@ -17,12 +17,12 @@ ChatDoctor is an AI-powered medical conversation assistant built on advanced lan
 - **Responsible AI**: Clear disclaimers and ethical boundaries for medical information
 - **Examples**: Pre-loaded sample questions to help users get started
 
-## 🔍 Live Demo
+## Live Demo
 
 Try the live demo on Hugging Face Spaces: [Your ChatDoctor Demo](https://huggingface.co/spaces/YOUR_USERNAME/ChatDoctor)
 
 
-## 🚀 How It Works
+## How It Works
 
 ### Technology Stack
 
@@ -164,7 +164,7 @@ This project is deployed on Hugging Face Spaces, providing a scalable and access
 
 This AI assistant provides information for educational purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition. Never disregard professional medical advice or delay in seeking it because of something you have read or heard from this AI assistant.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - [Hugging Face](https://huggingface.co/) for the model hosting and Spaces platform
 - [ChatDoctor Team](https://huggingface.co/zl111/ChatDoctor) for the base model
