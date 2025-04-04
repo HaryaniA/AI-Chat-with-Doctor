@@ -1,0 +1,5 @@
+torch
+transformers>=4.30.0
+gradio>=3.36.0
+accelerate
+bitsandbytes>=0.39.0
