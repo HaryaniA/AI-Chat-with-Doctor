@@ -21,7 +21,6 @@ ChatDoctor is an AI-powered medical conversation assistant built on advanced lan
 
 Try the live demo on Hugging Face Spaces: [Your ChatDoctor Demo](https://huggingface.co/spaces/YOUR_USERNAME/ChatDoctor)
 
-![Demo Screenshot](https://via.placeholder.com/800x400?text=ChatDoctor+Screenshot)
 
 ## 🚀 How It Works
 
@@ -46,7 +45,7 @@ Try the live demo on Hugging Face Spaces: [Your ChatDoctor Demo](https://hugging
 4. Continue the conversation with follow-up questions
 5. Use "Clear Conversation" to start fresh
 
-## 🩺 Example Interactions
+## Example Interactions
 
 ### Example 1: Understanding Symptoms
 
@@ -86,11 +85,11 @@ To minimize risks, take ibuprofen with food, use the lowest effective dose for t
 
 Disclaimer: This information is for educational purposes only and not a substitute for professional medical advice."
 
-## 🛠️ Technical Details
+## Technical Details
 
 ### Model Specifications
 
-- **Base Model**: zl111/ChatDoctor
+- **Base Model**: ChatDoctor is a next-generation AI doctor model that is based on the LLaMA model
 - **Model Type**: Causal Language Model (CLM)
 - **Response Generation**: Temperature=0.7, Top-p=0.9
 - **Context Window**: 512 tokens
@@ -136,7 +135,7 @@ def generate_response(user_input):
 5. **Examples Section**: Pre-populated example questions
 6. **Disclaimer**: Medical information advisory
 
-## ⚠️ Limitations and Ethical Guidelines
+## Limitations and Ethical Guidelines
 
 - **Not a Diagnostic Tool**: ChatDoctor cannot diagnose medical conditions
 - **Educational Purposes Only**: Information is provided for learning, not as medical advice
@@ -145,7 +144,7 @@ def generate_response(user_input):
 - **Knowledge Limitations**: May not have information about very recent medical developments
 - **Privacy**: No personal medical data is stored
 
-## 🔧 Deployment
+## Deployment
 
 This project is deployed on Hugging Face Spaces, providing a scalable and accessible platform for users worldwide. The deployment uses:
 
@@ -153,7 +152,7 @@ This project is deployed on Hugging Face Spaces, providing a scalable and access
 - **Hugging Face Transformers**: For model serving
 - **GPU Acceleration**: For faster response generation
 
-## 🔄 Future Improvements
+## Future Improvements
 
 - **Specialization**: Adding support for specific medical specialties
 - **Multilingual Support**: Expanding to multiple languages
@@ -161,7 +160,7 @@ This project is deployed on Hugging Face Spaces, providing a scalable and access
 - **Voice Interface**: Adding speech recognition and text-to-speech
 - **Medical Reference Links**: Providing citations to trusted medical resources
 
-## 📝 Disclaimer
+## Disclaimer
 
 This AI assistant provides information for educational purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition. Never disregard professional medical advice or delay in seeking it because of something you have read or heard from this AI assistant.
 
@@ -173,4 +172,3 @@ This AI assistant provides information for educational purposes only. It is not 
 
 ---
 
-Created with ❤️ by [Your Name]
