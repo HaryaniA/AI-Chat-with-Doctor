@@ -120,26 +120,61 @@ examples = [
     "What are the side effects of ibuprofen?"
 ]
 
+# Add CSS for styling
+css = """
+.gradio-container {
+    font-family: 'Arial', sans-serif;
+}
+.disclaimer {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-left: 3px solid #f0ad4e;
+    font-size: 14px;
+}
+"""
+
+# Create welcome message function
+def welcome():
+    return "Welcome to ChatDoctor! I'm an AI assistant trained to provide medical information. How can I help you today?"
+
 # Build the Gradio interface
-with gr.Blocks(theme=gr.themes.Soft()) as demo:
+with gr.Blocks(theme=gr.themes.Soft(), css=css) as demo:
     gr.Markdown("# Your Custom ChatDoctor")
     gr.Markdown("Ask medical questions and get AI-powered responses.")
     
-    chatbot = gr.Chatbot(height=600, bubble_full_width=False)
+    chatbot = gr.Chatbot(height=600, type="messages")
     msg = gr.Textbox(placeholder="Type your medical question here...", lines=2)
     
     with gr.Row():
         submit_btn = gr.Button("Send", variant="primary")
         clear_btn = gr.Button("Clear Conversation")
     
+    # Display example queries that users can click on
     gr.Examples(
         examples=examples,
         inputs=msg
     )
     
-    gr.Markdown("""
-    ### Disclaimer
-    This AI assistant provides information for educational purposes only. Always consult with a qualified healthcare provider for medical advice, diagnosis, or treatment. This tool is not intended to replace professional medical consultation.
+    with gr.Accordion("About this AI", open=False):
+        gr.Markdown("""
+        **ChatDoctor** is a medical conversation model designed to provide general health information.
+        
+        This AI uses language models to generate responses based on patterns learned from medical texts and conversations.
+        
+        **Important Notes:**
+        - This system is for informational purposes only
+        - Not a substitute for professional medical advice
+        - In emergencies, contact emergency services immediately
+        """)
+    
+    # Add disclaimer at the bottom with custom styling
+    gr.HTML("""
+    <div class="disclaimer">
+        <strong>Disclaimer:</strong> This AI assistant provides information for educational purposes only. 
+        Always consult with a qualified healthcare provider for medical advice, diagnosis, or treatment. 
+        This tool is not intended to replace professional medical consultation.
+    </div>
     """)
     
     def respond(message, chat_history):
@@ -150,7 +185,8 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
             return "", chat_history
             
         bot_message = doctor.generate_response(message)
-        chat_history.append((message, bot_message))
+        chat_history.append({"role": "user", "content": message})
+        chat_history.append({"role": "assistant", "content": bot_message})
         return "", chat_history
     
     def clear_history():
@@ -158,20 +194,17 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
         doctor.reset_conversation()
         return None
     
+    # Show welcome message when the app starts
+    demo.load(lambda: None, None, chatbot, js="""
+        () => {
+            const welcomeMsg = "Welcome to ChatDoctor! I'm an AI assistant trained to provide medical information. How can I help you today?";
+            return [[null, welcomeMsg]];
+        }
+    """)
+    
     submit_btn.click(respond, [msg, chatbot], [msg, chatbot])
     msg.submit(respond, [msg, chatbot], [msg, chatbot])
     clear_btn.click(clear_history, None, chatbot)
-    
-    gr.load(js="""
-        // Add a welcome message when the app loads
-        if (typeof window.welcomed === 'undefined') {
-            window.welcomed = true;
-            const welcomeMsg = "Welcome to ChatDoctor! I'm an AI assistant trained to provide medical information. How can I help you today?";
-            document.querySelector('.gradio-container').dispatchEvent(
-                new CustomEvent('bot-message', { detail: welcomeMsg })
-            );
-        }
-    """)
 
 # Launch the app
 demo.launch()
